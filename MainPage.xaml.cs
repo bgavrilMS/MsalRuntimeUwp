@@ -118,7 +118,7 @@ namespace MsalRuntimeUwp
             using (var core = new Core())
             using (var authParams = GetCommonAuthParameters())
             {
-                using (AuthResult result = await core.SignInAsync(
+                using (AuthResult result = await core.SignInAsync(  // this works yay!
                         GetUwpWindowHandle(),
                         authParams,
                         Guid.NewGuid().ToString("D"),
@@ -127,11 +127,6 @@ namespace MsalRuntimeUwp
                     await LogResultAsync(result);
                 }
             }
-        }
-
-        private object AcquireToken(string v)
-        {
-            throw new NotImplementedException();
         }
 
         private async Task DisplayMessageAsync(string message)
